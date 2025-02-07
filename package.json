@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
   "main": "lib/index.js",
+  "files": [
+    "LICENSE",
+    "lib/"
+  ],
   "scripts": {
     "format": "biome format ./src",
     "format:fix": "biome format --write ./src",
