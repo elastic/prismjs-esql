@@ -4,7 +4,10 @@
   "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"no tests...\""
+    "test": "echo \"no tests...\"",
+    "clean": "npx rimraf@5.0.5 lib",
+    "build:es2020": "tsc --project tsconfig.build.json --module commonjs --target es2020 --outDir lib",
+    "build": "yarn build:es2020"
   },
   "repository": {
     "type": "git",
@@ -24,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/elastic/prismjs-esql/issues"
   },
-  "homepage": "https://github.com/elastic/prismjs-esql#readme"
+  "homepage": "https://github.com/elastic/prismjs-esql#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
 }
