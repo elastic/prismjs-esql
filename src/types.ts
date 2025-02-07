@@ -1,6 +1,6 @@
 export interface RefractorLanguageDefinition {
   displayName: string;
-  aliases: any[];
+  aliases: string[];
   (prism: PrismGlobal): void;
 }
 

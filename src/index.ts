@@ -1,4 +1,4 @@
-import type { RefractorLanguageDefinition } from './types';
+import type {RefractorLanguageDefinition} from './types';
 
 const commands = [
   'DISSECT',
@@ -155,29 +155,9 @@ const functions = [
   'WEIGHTED_AVG',
 ];
 
-const keywords = [
-  'BY',
-  'ASC',
-  'DESC',
-  'FIRST',
-  'LAST',
-  'ON',
-  'WITH',
-  'METADATA',
-  'NULLS',
-];
+const keywords = ['BY', 'ASC', 'DESC', 'FIRST', 'LAST', 'ON', 'WITH', 'METADATA', 'NULLS'];
 
-const namedBinaryOperators = [
-  'AND',
-  'OR',
-  'IS',
-  'IN',
-  'AS',
-  'LIKE',
-  'RLIKE',
-  'RLIKE',
-  'WHERE',
-];
+const namedBinaryOperators = ['AND', 'OR', 'IS', 'IN', 'AS', 'LIKE', 'RLIKE', 'RLIKE', 'WHERE'];
 
 export const esql: RefractorLanguageDefinition = function esql(Prism) {
   Prism.languages.esql = {
@@ -222,10 +202,7 @@ export const esql: RefractorLanguageDefinition = function esql(Prism) {
     },
 
     'named-binary-operator': {
-      pattern: new RegExp(
-        '\\b(?:' + namedBinaryOperators.join('|') + ')\\b',
-        'i'
-      ),
+      pattern: new RegExp('\\b(?:' + namedBinaryOperators.join('|') + ')\\b', 'i'),
       alias: ['keyword'],
     },
 
