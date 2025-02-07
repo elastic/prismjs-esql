@@ -1,0 +1,28 @@
+{
+  "name": "@elastic/prismjs-esql",
+  "version": "0.0.1",
+  "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"no tests...\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elastic/prismjs-esql.git"
+  },
+  "keywords": [
+    "esql",
+    "prism",
+    "prismjs",
+    "refractor",
+    "es|ql",
+    "elastic",
+    "spl"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elastic/prismjs-esql/issues"
+  },
+  "homepage": "https://github.com/elastic/prismjs-esql#readme"
+}
