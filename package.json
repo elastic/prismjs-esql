@@ -16,7 +16,8 @@
     "format:fix": "biome format --write ./src",
     "lint": "biome lint ./src",
     "lint:fix": "biome lint --apply ./src",
-    "test": "echo \"no tests...\"",
+    "test": "vitest ./src",
+    "coverage": "vitest run --coverage",
     "clean": "npx rimraf@5.0.5 lib",
     "build:es2020": "tsc --project tsconfig.build.json --module commonjs --target es2020 --outDir lib",
     "build": "yarn build:es2020"
@@ -42,6 +43,9 @@
   "homepage": "https://github.com/elastic/prismjs-esql#readme",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "typescript": "^5.4.5"
+    "@vitest/coverage-v8": "^2.1.2",
+    "refractor": "^4.8.1",
+    "typescript": "^5.4.5",
+    "vitest": "^2.1.2"
   }
 }
