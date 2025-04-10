@@ -6,6 +6,7 @@ const commands = [
   'ENRICH',
   'EVAL',
   'EXPLAIN',
+  'FORK',
   'FROM',
   'FULL JOIN',
   'GROK',
