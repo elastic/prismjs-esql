@@ -109,6 +109,9 @@ dist
 .vscode-test
 .vscode
 
+# IntelliJ editor config files
+.idea
+
 # yarn v2
 .yarn/cache
 .yarn/unplugged
