@@ -21,6 +21,7 @@ const commands = [
   'RENAME',
   'RIGHT JOIN',
   'ROW',
+  'RRF',
   'SAMPLE',
   'SHOW',
   'SORT',
