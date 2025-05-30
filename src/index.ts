@@ -23,6 +23,7 @@ const commands = [
   'RIGHT JOIN',
   'ROW',
   'RRF',
+  'SAMPLE',
   'SHOW',
   'SORT',
   'STATS',
