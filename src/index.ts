@@ -1,6 +1,7 @@
 import type {RefractorLanguageDefinition} from './types';
 
 const commands = [
+  'COMPLETION',
   'DISSECT',
   'DROP',
   'ENRICH',
