@@ -42,10 +42,10 @@
   },
   "homepage": "https://github.com/elastic/prismjs-esql#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@vitest/coverage-v8": "^2.1.2",
-    "refractor": "^4.8.1",
-    "typescript": "^5.4.5",
-    "vitest": "^2.1.2"
+    "@biomejs/biome": "1.9.4",
+    "@vitest/coverage-v8": "2.1.9",
+    "refractor": "4.8.1",
+    "typescript": "5.7.3",
+    "vitest": "2.1.9"
   }
 }
