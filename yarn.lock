@@ -879,10 +879,10 @@ property-information@^6.0.0:
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-6.5.0.tgz#6212fbb52ba757e92ef4fb9d657563b933b7ffec"
   integrity sha512-PgTgs/BlvHxOu8QuEN7wi5A0OmXaBcHpmCSTehcs6Uuu9IkDIEo13Hy7n898RHfrQ49vKCoGeWZSaAK01nwVig==
 
-refractor@4.8.1:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/refractor/-/refractor-4.8.1.tgz#fbdd889333a3d86c9c864479622855c9b38e9d42"
-  integrity sha512-/fk5sI0iTgFYlmVGYVew90AoYnNMP6pooClx/XKqyeeCQXrL0Kvgn8V0VEht5ccdljbzzF1i3Q213gcntkRExg==
+refractor@4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/refractor/-/refractor-4.9.0.tgz#2e1c7af0157230cdd2f9086660912eadc5f68323"
+  integrity sha512-nEG1SPXFoGGx+dcjftjv8cAjEusIh6ED1xhf5DG3C0x/k+rmZ2duKnc3QLpt6qeHv5fPb8uwN3VWN2BT7fr3Og==
   dependencies:
     "@types/hast" "^2.0.0"
     "@types/prismjs" "^1.0.0"
