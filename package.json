@@ -44,7 +44,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@vitest/coverage-v8": "2.1.9",
-    "refractor": "4.9.0",
+    "refractor": "5.0.0",
     "typescript": "5.8.3",
     "vitest": "2.1.9"
   }
