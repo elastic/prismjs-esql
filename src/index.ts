@@ -20,6 +20,7 @@ const commands = [
   'METRICS',
   'MV_EXPAND',
   'RENAME',
+  'RERANK',
   'RIGHT JOIN',
   'ROW',
   'RRF',
