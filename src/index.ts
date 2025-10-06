@@ -10,6 +10,7 @@ const commands = [
   'FORK',
   'FROM',
   'FULL JOIN',
+  'FUSE',
   'GROK',
   'INLINESTATS',
   'JOIN',
@@ -23,7 +24,6 @@ const commands = [
   'RERANK',
   'RIGHT JOIN',
   'ROW',
-  'RRF',
   'SAMPLE',
   'SHOW',
   'SORT',
@@ -160,7 +160,7 @@ const functions = [
   'WEIGHTED_AVG',
 ];
 
-const keywords = ['BY', 'ASC', 'DESC', 'FIRST', 'LAST', 'ON', 'WITH', 'METADATA', 'NULLS'];
+const keywords = ['BY', 'ASC', 'DESC', 'FIRST', 'LAST', 'ON', 'WITH', 'METADATA', 'NULLS', 'SCORE', 'KEY', 'GROUP'];
 
 const namedBinaryOperators = ['AND', 'OR', 'IS', 'IN', 'AS', 'LIKE', 'RLIKE', 'RLIKE', 'WHERE'];
 
