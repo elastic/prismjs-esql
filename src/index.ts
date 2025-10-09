@@ -25,6 +25,7 @@ const commands = [
   'ROW',
   'RRF',
   'SAMPLE',
+  'SET',
   'SHOW',
   'SORT',
   'STATS',
