@@ -25,6 +25,7 @@ const commands = [
   'RIGHT JOIN',
   'ROW',
   'SAMPLE',
+  'SET',
   'SHOW',
   'SORT',
   'STATS',
