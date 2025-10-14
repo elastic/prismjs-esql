@@ -2,9 +2,8 @@ name: Release
 
 on:
   pull_request:
-    #types: [closed] //HD
-    types: [opened, synchronize, reopened, closed]
-    #branches: [main] //HD
+    types: [closed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,11 +17,11 @@ jobs:
     # Only run if:
     # 1. Manually triggered via workflow_dispatch, OR
     # 2. PR was merged and contains publish label
-    #//HDif: | 
-    #   github.event_name == 'workflow_dispatch' || (
-    #     github.event.pull_request.merged == true && 
-    #     contains(github.event.pull_request.labels.*.name, 'publish')
-    #   )
+    if: | 
+      github.event_name == 'workflow_dispatch' || (
+        github.event.pull_request.merged == true && 
+        contains(github.event.pull_request.labels.*.name, 'publish')
+      )
     steps:
       - name: Checkout
         uses: actions/checkout@v5
