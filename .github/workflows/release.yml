@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: write  # Required for release-it to create releases and push tags
+  pull-requests: write  # Required for release-it to comment on PRs
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # Only run if:
+    # 1. Manually triggered via workflow_dispatch, OR
+    # 2. PR was merged and contains publish label
+    if: | 
+      github.event_name == 'workflow_dispatch' || (
+        github.event.pull_request.merged == true && 
+        contains(github.event.pull_request.labels.*.name, 'publish')
+      )
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref || github.ref_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
+      # Configure git user for release-it commits
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Lint
+        run: yarn lint
+      - name: Test
+        run: yarn test
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn release

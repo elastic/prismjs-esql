@@ -11,10 +11,7 @@ import {esql} from '@elastic/prismjs-esql';
 register(esql)
 ```
 
-
-## Releasing
-
-Run test and build steps:
+## Run test and build steps
 
 ```
 yarn test
@@ -23,11 +20,10 @@ yarn lint
 yarn build
 ```
 
-Publish with `release-it` tool:
+## Releasing
 
-```
-npx release-it
-```
+To release a new version add a `publish` label to the PR.
+Or you can run the `Release` Github action manually from Github web.
 
 
 ## License

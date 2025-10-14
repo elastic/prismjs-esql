@@ -1,8 +1,9 @@
 {
   "name": "@elastic/prismjs-esql",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
   "main": "lib/index.js",
@@ -19,7 +20,8 @@
     "coverage": "vitest run --coverage",
     "clean": "npx rimraf@5.0.5 lib",
     "build:es2020": "tsc --project tsconfig.build.json --module commonjs --target es2020 --outDir lib",
-    "build": "yarn build:es2020"
+    "build": "yarn build:es2020",
+    "release": "npx release-it"
   },
   "repository": {
     "type": "git",
