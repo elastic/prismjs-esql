@@ -3,7 +3,7 @@ name: Release
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed] # testing get back to only closed
-    branches: [main]
+  #  branches: [main]
   workflow_dispatch:
 
 permissions:
