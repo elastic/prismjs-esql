@@ -23,7 +23,6 @@ yarn build
 ## Releasing
 
 To release a new version add a `publish` label to the PR.
-Or you can run the `Release` Github action manually from Github web. 
 
 
 ## License
