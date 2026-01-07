@@ -8,20 +8,22 @@
   "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
   "main": "lib/index.js",
   "files": [
+    "NOTICE.txt",
     "LICENSE",
     "lib/"
   ],
   "scripts": {
     "format": "biome format ./src",
     "format:fix": "biome format --write ./src",
-    "lint": "biome lint ./src",
-    "lint:fix": "biome lint --apply ./src",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "vitest ./src",
     "coverage": "vitest run --coverage",
     "clean": "npx rimraf@5.0.5 lib",
     "build:es2020": "tsc --project tsconfig.build.json --module commonjs --target es2020 --outDir lib",
     "build": "yarn build:es2020",
-    "release": "npx release-it"
+    "release": "npx release-it",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -43,10 +45,22 @@
   },
   "homepage": "https://github.com/elastic/prismjs-esql#readme",
   "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/eslint-parser": "7.28.5",
     "@biomejs/biome": "2.3.10",
+    "@eslint/js": "9.39.2",
     "@vitest/coverage-v8": "4.0.16",
+    "eslint": "9.39.2",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
     "refractor": "5.0.0",
     "typescript": "5.9.3",
+    "typescript-eslint": "8.52.0",
     "vitest": "4.0.16"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,mjs}": [
+      "eslint --fix"
+    ]
   }
 }
