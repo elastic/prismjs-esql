@@ -55,7 +55,7 @@
     "lint-staged": "16.2.7",
     "refractor": "5.0.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.52.0",
+    "typescript-eslint": "8.53.0",
     "vitest": "4.0.18"
   },
   "lint-staged": {
