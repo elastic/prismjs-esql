@@ -20,7 +20,7 @@
     "test": "vitest ./src",
     "coverage": "vitest run --coverage",
     "clean": "npx rimraf@5.0.5 lib",
-    "build:es2020": "tsc --project tsconfig.build.json --module commonjs --target es2020 --outDir lib",
+    "build:es2020": "tsc --project tsconfig.build.json",
     "build": "yarn build:es2020",
     "release": "npx release-it",
     "prepare": "husky"
