@@ -21,8 +21,7 @@ yarn build
 ```
 
 ## Releasing
-
-To release a new version add a `publish` label to the PR.
+See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 
 ## License
