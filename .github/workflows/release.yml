@@ -1,57 +1,63 @@
 name: Release
 
 on:
-  pull_request:
-    types: [closed]
-    branches: [main]
   workflow_dispatch:
+    inputs:
+      branch:
+        description: Branch to release from
+        required: true
+        type: string
+        default: main
 
 permissions:
-  id-token: write  # Required for OIDC
-  contents: write  # Required for release-it to create releases and push tags
-  pull-requests: write  # Required for release-it to comment on PRs
+  contents: read
 
 jobs:
-  release:
+  build-and-test:
+    name: Build & Test
     runs-on: ubuntu-latest
-    # Only run if:
-    # 1. Manually triggered via workflow_dispatch, OR
-    # 2. PR was merged and contains publish label
-    if: | 
-      github.event_name == 'workflow_dispatch' || (
-        github.event.pull_request.merged == true && 
-        contains(github.event.pull_request.labels.*.name, 'publish')
-      )
     steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref || github.ref_name }}
-      - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+          ref: ${{ inputs.branch }}
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: '24'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
-      # Ensure npm 11.5.1 or later is installed
-      - name: Update npm
-        run: npm install -g npm@latest
-      # Configure git user for release-it commits
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build
-        run: yarn build
-      - name: Lint
-        run: yarn lint
-      - name: Test
-        run: yarn test
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn format
+      - run: yarn build
+
+  release:
+    name: Release
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        with:
+          node-version: '24'
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+
       - name: Release
+        run: npx semantic-release --debug
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn release
