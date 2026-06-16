@@ -56,11 +56,11 @@
     "@vitest/coverage-v8": "4.1.8",
     "eslint": "10.4.1",
     "husky": "9.1.7",
-    "lint-staged": "17.0.5",
+    "lint-staged": "17.0.7",
     "refractor": "5.0.0",
     "semantic-release": "25.0.3",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.60.0",
+    "typescript-eslint": "8.60.1",
     "vitest": "4.1.8"
   },
   "lint-staged": {
