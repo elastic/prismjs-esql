@@ -13,51 +13,13 @@ permissions:
   contents: read
 
 jobs:
-  build-and-test:
-    name: Build & Test
+  disabled:
+    name: Release disabled - repository moved
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-        with:
-          ref: ${{ inputs.branch }}
-
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        with:
-          node-version: '24'
-          cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
-
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint
-      - run: yarn format
-      - run: yarn build
-
-  release:
-    name: Release
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
-    steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-        with:
-          ref: ${{ inputs.branch }}
-          fetch-depth: 0
-          persist-credentials: false
-
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        with:
-          node-version: '24'
-          cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
-
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-
-      - name: Release
-        run: npx semantic-release --debug
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fail with pointer to new location
+        run: |
+          echo "::error::This repository has moved to elastic/esql-js (packages/prismjs-esql)."
+          echo "::error::Releases are now published from that monorepo. This workflow is disabled to prevent accidental npm publishes from the old repo."
+          echo "::error::See https://github.com/elastic/esql-js/tree/main/packages/prismjs-esql"
+          exit 1
