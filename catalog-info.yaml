@@ -5,7 +5,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
   name: buildkite-pipeline-prismjs-esql
-  description: Buildkite Pipeline for prismjs-esql
+  description: >
+    Buildkite Pipeline for prismjs-esql.
+    DEPRECATED: this repository has moved to elastic/esql-js
+    (packages/prismjs-esql).
   links:
     - title: Pipeline
       url: https://buildkite.com/elastic/prismjs-esql

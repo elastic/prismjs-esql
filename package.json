@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Prism.js and Refractor ES|QL language syntax definitions for highlighting",
+  "description": "DEPRECATED: moved to the elastic/esql-js monorepo (packages/prismjs-esql). Prism.js and Refractor ES|QL language syntax definitions for highlighting",
   "main": "lib/index.js",
   "files": [
     "NOTICE.txt",
